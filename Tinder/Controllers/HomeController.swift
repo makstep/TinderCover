@@ -14,10 +14,16 @@ class HomeController: UIViewController {
     private let cardsDeckView = UIView()
     private let bottimStackView = HomeButtomControlsStackView()
     
-    let cardViewModels = [
-        User(name: "Kelly", age: 23, profession: "Music DJ", imageName: "lady5c").toCardViewModel(),
-        User(name: "Jane", age: 18, profession: "Teacher", imageName: "lady4c").toCardViewModel()
-    ]
+    let cardViewModels: [CardViewModel] = {
+        let producers: [ProducesCardViewModel] = [
+            User(name: "Kelly", age: 23, profession: "Music DJ", imageName: "lady5c"),
+            User(name: "Jane", age: 18, profession: "Teacher", imageName: "lady4c"),
+            Advertiser(title: "Street Food", brandName: "Fat Custom Guides", posterPhotoName: "street_food"),
+            User(name: "Jane", age: 18, profession: "Teacher", imageName: "lady4c")
+        ]
+        
+        return producers.map { $0.toCardViewModel() }
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,10 +35,11 @@ class HomeController: UIViewController {
     fileprivate func setupDummuCards() {
         cardViewModels.forEach { (cardViewModel) in
             let cardView = CardView(frame: .zero)
+            cardView.cardViewModel = cardViewModel
 
-            cardView.imageView.image = UIImage(named: cardViewModel.imageName)
-            cardView.informationLabel.attributedText = cardViewModel.attributedString
-            cardView.informationLabel.textAlignment = cardViewModel.textAlingment
+//            cardView.imageView.image = UIImage(named: cardViewModel.imageName)
+//            cardView.informationLabel.attributedText = cardViewModel.attributedString
+//            cardView.informationLabel.textAlignment = cardViewModel.textAlingment
 
             cardsDeckView.addSubview(cardView)
             cardView.fillSuperview()

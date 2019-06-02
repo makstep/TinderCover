@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		B5981D9C22A30C910011F494 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5981D9B22A30C910011F494 /* User.swift */; };
 		B5981DA022A3E84B0011F494 /* CardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5981D9F22A3E84B0011F494 /* CardViewModel.swift */; };
+		B5981DA322A400690011F494 /* Advertiser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5981DA222A400690011F494 /* Advertiser.swift */; };
 		B5EC221522A0578600E2318D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5EC221422A0578600E2318D /* AppDelegate.swift */; };
 		B5EC221722A0578600E2318D /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5EC221622A0578600E2318D /* HomeController.swift */; };
 		B5EC221A22A0578600E2318D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5EC221822A0578600E2318D /* Main.storyboard */; };
@@ -24,6 +25,7 @@
 		B5981D9B22A30C910011F494 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		B5981D9F22A3E84B0011F494 /* CardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewModel.swift; sourceTree = "<group>"; };
 		B5981DA122A3FDE00011F494 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		B5981DA222A400690011F494 /* Advertiser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Advertiser.swift; sourceTree = "<group>"; };
 		B5EC221122A0578600E2318D /* Tinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5EC221422A0578600E2318D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B5EC221622A0578600E2318D /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
@@ -52,6 +54,7 @@
 			isa = PBXGroup;
 			children = (
 				B5981D9B22A30C910011F494 /* User.swift */,
+				B5981DA222A400690011F494 /* Advertiser.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -197,6 +200,7 @@
 			files = (
 				B5EC221722A0578600E2318D /* HomeController.swift in Sources */,
 				B5EC221522A0578600E2318D /* AppDelegate.swift in Sources */,
+				B5981DA322A400690011F494 /* Advertiser.swift in Sources */,
 				B5EC222822A05A6000E2318D /* Extensions+UIView.swift in Sources */,
 				B5EC222B22A0681800E2318D /* HomeButtomControlsStackView.swift in Sources */,
 				B5981DA022A3E84B0011F494 /* CardViewModel.swift in Sources */,
