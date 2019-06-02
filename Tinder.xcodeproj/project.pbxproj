@@ -7,21 +7,34 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B5981D9C22A30C910011F494 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5981D9B22A30C910011F494 /* User.swift */; };
+		B5981DA022A3E84B0011F494 /* CardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5981D9F22A3E84B0011F494 /* CardViewModel.swift */; };
 		B5EC221522A0578600E2318D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5EC221422A0578600E2318D /* AppDelegate.swift */; };
-		B5EC221722A0578600E2318D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5EC221622A0578600E2318D /* ViewController.swift */; };
+		B5EC221722A0578600E2318D /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5EC221622A0578600E2318D /* HomeController.swift */; };
 		B5EC221A22A0578600E2318D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5EC221822A0578600E2318D /* Main.storyboard */; };
-		B5EC221C22A0578700E2318D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5EC221B22A0578700E2318D /* Assets.xcassets */; };
 		B5EC221F22A0578700E2318D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5EC221D22A0578700E2318D /* LaunchScreen.storyboard */; };
+		B5EC222822A05A6000E2318D /* Extensions+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5EC222722A05A6000E2318D /* Extensions+UIView.swift */; };
+		B5EC222B22A0681800E2318D /* HomeButtomControlsStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5EC222A22A0681800E2318D /* HomeButtomControlsStackView.swift */; };
+		B5EC222D22A06A9300E2318D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5EC222C22A06A9300E2318D /* Assets.xcassets */; };
+		B5EC222F22A0720100E2318D /* TopNavigationStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5EC222E22A0720100E2318D /* TopNavigationStackView.swift */; };
+		B5EC223122A08E0100E2318D /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5EC223022A08E0100E2318D /* CardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B5981D9B22A30C910011F494 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		B5981D9F22A3E84B0011F494 /* CardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewModel.swift; sourceTree = "<group>"; };
+		B5981DA122A3FDE00011F494 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		B5EC221122A0578600E2318D /* Tinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5EC221422A0578600E2318D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B5EC221622A0578600E2318D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B5EC221622A0578600E2318D /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		B5EC221922A0578600E2318D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		B5EC221B22A0578700E2318D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B5EC221E22A0578700E2318D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B5EC222022A0578700E2318D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B5EC222722A05A6000E2318D /* Extensions+UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extensions+UIView.swift"; sourceTree = "<group>"; };
+		B5EC222A22A0681800E2318D /* HomeButtomControlsStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeButtomControlsStackView.swift; sourceTree = "<group>"; };
+		B5EC222C22A06A9300E2318D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B5EC222E22A0720100E2318D /* TopNavigationStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopNavigationStackView.swift; sourceTree = "<group>"; };
+		B5EC223022A08E0100E2318D /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,9 +48,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B5981D9A22A30C820011F494 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B5981D9B22A30C910011F494 /* User.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B5981D9D22A3E7BC0011F494 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B5EC221622A0578600E2318D /* HomeController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		B5981D9E22A3E8370011F494 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				B5981D9F22A3E84B0011F494 /* CardViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		B5EC220822A0578600E2318D = {
 			isa = PBXGroup;
 			children = (
+				B5981DA122A3FDE00011F494 /* README.md */,
 				B5EC221322A0578600E2318D /* Tinder */,
 				B5EC221222A0578600E2318D /* Products */,
 			);
@@ -54,14 +92,36 @@
 		B5EC221322A0578600E2318D /* Tinder */ = {
 			isa = PBXGroup;
 			children = (
+				B5981D9E22A3E8370011F494 /* ViewModels */,
+				B5981D9A22A30C820011F494 /* Model */,
+				B5EC222922A067D700E2318D /* Views */,
+				B5EC222622A059C500E2318D /* Extentions */,
 				B5EC221422A0578600E2318D /* AppDelegate.swift */,
-				B5EC221622A0578600E2318D /* ViewController.swift */,
+				B5981D9D22A3E7BC0011F494 /* Controllers */,
 				B5EC221822A0578600E2318D /* Main.storyboard */,
-				B5EC221B22A0578700E2318D /* Assets.xcassets */,
 				B5EC221D22A0578700E2318D /* LaunchScreen.storyboard */,
 				B5EC222022A0578700E2318D /* Info.plist */,
+				B5EC222C22A06A9300E2318D /* Assets.xcassets */,
 			);
 			path = Tinder;
+			sourceTree = "<group>";
+		};
+		B5EC222622A059C500E2318D /* Extentions */ = {
+			isa = PBXGroup;
+			children = (
+				B5EC222722A05A6000E2318D /* Extensions+UIView.swift */,
+			);
+			path = Extentions;
+			sourceTree = "<group>";
+		};
+		B5EC222922A067D700E2318D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B5EC222A22A0681800E2318D /* HomeButtomControlsStackView.swift */,
+				B5EC222E22A0720100E2318D /* TopNavigationStackView.swift */,
+				B5EC223022A08E0100E2318D /* CardView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -123,7 +183,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B5EC221F22A0578700E2318D /* LaunchScreen.storyboard in Resources */,
-				B5EC221C22A0578700E2318D /* Assets.xcassets in Resources */,
+				B5EC222D22A06A9300E2318D /* Assets.xcassets in Resources */,
 				B5EC221A22A0578600E2318D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -135,8 +195,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B5EC221722A0578600E2318D /* ViewController.swift in Sources */,
+				B5EC221722A0578600E2318D /* HomeController.swift in Sources */,
 				B5EC221522A0578600E2318D /* AppDelegate.swift in Sources */,
+				B5EC222822A05A6000E2318D /* Extensions+UIView.swift in Sources */,
+				B5EC222B22A0681800E2318D /* HomeButtomControlsStackView.swift in Sources */,
+				B5981DA022A3E84B0011F494 /* CardViewModel.swift in Sources */,
+				B5EC223122A08E0100E2318D /* CardView.swift in Sources */,
+				B5EC222F22A0720100E2318D /* TopNavigationStackView.swift in Sources */,
+				B5981D9C22A30C910011F494 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,6 +349,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TVUK3AXMB3;
 				INFOPLIST_FILE = Tinder/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -300,6 +367,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TVUK3AXMB3;
 				INFOPLIST_FILE = Tinder/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
