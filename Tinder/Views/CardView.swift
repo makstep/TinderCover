@@ -21,26 +21,14 @@ class CardView: UIView {
     // Configuration
     fileprivate let threshold: CGFloat = 100
 
-    private let imageView = UIImageView(image: #imageLiteral(resourceName: "lady5c"))
-    private let informationLabel = UILabel()
+    fileprivate let imageView = UIImageView(image: #imageLiteral(resourceName: "lady5c"))
+    fileprivate let informationLabel = UILabel()
+    fileprivate let gradiestLayer = CAGradientLayer()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
 
-        addSubview(imageView)
-        imageView.fillSuperview()
-
-        addSubview(informationLabel)
-        informationLabel.anchor(top: nil, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, padding: .init(top: 0, left: 16, bottom: 16, right: 16))
-        
-        informationLabel.text = "Default text"
-        informationLabel.textColor = .white
-        informationLabel.font = UIFont.systemFont(ofSize: 34, weight: .heavy)
-        informationLabel.numberOfLines = 2
-
-        imageView.contentMode = .scaleAspectFill
-        layer.cornerRadius = 10
-        clipsToBounds = true
+        setupLayout()
 
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(handlePan))
         addGestureRecognizer(panGesture)
@@ -49,9 +37,36 @@ class CardView: UIView {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    override func layoutSubviews() {
+        gradiestLayer.frame = self.frame
+    }
+    
+    // MARK:- Fileprivate
+    
+    fileprivate func setupLayout() {
+        addSubview(imageView)
+        imageView.fillSuperview()
 
-    @objc private func handlePan(gesture: UIPanGestureRecognizer) {
+        setupGradiestLayer()
+        
+        addSubview(informationLabel)
+        informationLabel.anchor(top: nil, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, padding: .init(top: 0, left: 16, bottom: 16, right: 16))
+        
+        informationLabel.textColor = .white
+        informationLabel.numberOfLines = 2
+
+        imageView.contentMode = .scaleAspectFill
+        layer.cornerRadius = 10
+        clipsToBounds = true
+    }
+
+    @objc fileprivate func handlePan(gesture: UIPanGestureRecognizer) {
         switch gesture.state {
+        case .began:
+            superview?.subviews.forEach({ (subview) in
+                subview.layer.removeAllAnimations()
+            })
         case .changed:
             handleChanged(gesture)
         case .ended:
@@ -68,6 +83,13 @@ class CardView: UIView {
         let angle = degrees * .pi / 180
         
         self.transform = CGAffineTransform(rotationAngle: angle).translatedBy(x: translation.x, y: translation.y)
+    }
+
+    fileprivate func setupGradiestLayer() {
+        gradiestLayer.colors = [UIColor.clear.cgColor, UIColor.black.cgColor]
+        gradiestLayer.locations = [0.5, 1.1]
+        
+        layer.addSublayer(gradiestLayer)
     }
 
     fileprivate func handleEnded(_ gesture: UIPanGestureRecognizer) {
@@ -96,5 +118,5 @@ class CardView: UIView {
                            }
                        })
     }
-    
+
 }
