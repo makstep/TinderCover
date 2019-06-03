@@ -13,7 +13,7 @@ struct User: ProducesCardViewModel {
     let name: String
     let age: Int
     let profession: String
-    let imageName: String
+    let imageNames: [String]
     
     private var attributedText: NSAttributedString {
         let attributedText = NSMutableAttributedString(string: name, attributes: [.font: UIFont.systemFont(ofSize: 32, weight: .heavy)])
@@ -24,7 +24,7 @@ struct User: ProducesCardViewModel {
     }
     
     func toCardViewModel() -> CardViewModel {
-        return CardViewModel(imageName: imageName, attributedString: attributedText, textAlingment: .left)
+        return CardViewModel(imageNames: imageNames, attributedString: attributedText, textAlingment: .left)
     }
 
 }

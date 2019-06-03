@@ -16,10 +16,9 @@ class HomeController: UIViewController {
 
     let cardViewModels: [CardViewModel] = {
         let producers: [ProducesCardViewModel] = [
-            User(name: "Kelly", age: 23, profession: "Music DJ", imageName: "lady5c"),
-            User(name: "Jane", age: 18, profession: "Teacher", imageName: "lady4c"),
+            User(name: "Kelly", age: 23, profession: "Music DJ", imageNames: ["kelly1", "kelly2", "kelly3"]),
             Advertiser(title: "Street Food", brandName: "Fat Custom Guides", posterPhotoName: "street_food"),
-            User(name: "Jane", age: 18, profession: "Teacher", imageName: "lady4c")
+            User(name: "Jane", age: 18, profession: "Teacher", imageNames: ["jane1", "jane2", "jane3"])
         ]
 
         return producers.map { $0.toCardViewModel() }
@@ -32,6 +31,8 @@ class HomeController: UIViewController {
         setupDummuCards()
     }
 
+     // MARK:- Fileprivate
+
     fileprivate func setupDummuCards() {
         cardViewModels.forEach { (cardViewModel) in
             let cardView = CardView(frame: .zero)
@@ -41,8 +42,6 @@ class HomeController: UIViewController {
             cardView.fillSuperview()
         }
     }
-
-    // MARK:- Fileprivate
 
     fileprivate func setupLayout() {
         let overallStackView = UIStackView(arrangedSubviews: [topNavigationStackView, cardsDeckView, bottimStackView])
