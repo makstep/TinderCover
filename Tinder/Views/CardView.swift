@@ -20,8 +20,7 @@ class CardView: UIView {
             barsStackView.arrangedSubviews.forEach { (subview) in
                 barsStackView.removeArrangedSubview(subview)
             }
-            imageIndex = 0
-            
+
             if cardViewModel.imageNames.count >= minCountOfImageNamesToShowBarStack {
                 (0..<cardViewModel.imageNames.count).forEach { (_) in
                     let barView = UIView()
@@ -33,6 +32,8 @@ class CardView: UIView {
                 
                 barsStackView.arrangedSubviews.first?.backgroundColor = barSelectedColor
             }
+
+            setupImageIndexObserver()
         }
     }
 
@@ -48,9 +49,6 @@ class CardView: UIView {
     fileprivate let gradiestLayer = CAGradientLayer()
     fileprivate let barsStackView = UIStackView()
 
-    // Variables
-    fileprivate var imageIndex = 0
-
     override init(frame: CGRect) {
         super.init(frame: frame)
 
@@ -59,52 +57,56 @@ class CardView: UIView {
         addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTap)))
         addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(handlePan)))
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     override func layoutSubviews() {
         gradiestLayer.frame = self.frame
     }
-    
+
     // MARK:- Fileprivate
-    
+
+    fileprivate func setupImageIndexObserver() {
+        cardViewModel.imageIndexObserver = { [unowned self] (index, image) in
+            self.imageView.image = image
+            
+            print("fuck")
+
+            self.setSelectedBar(at: index)
+            self.barsStackView.arrangedSubviews[index].backgroundColor = self.barSelectedColor
+        }
+    }
+
     fileprivate func setupLayout() {
         addSubview(imageView)
         imageView.fillSuperview()
 
         setupGradiestLayer()
-        
+
         addSubview(informationLabel)
         informationLabel.anchor(top: nil, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, padding: .init(top: 0, left: 16, bottom: 16, right: 16))
-        
+
         informationLabel.textColor = .white
         informationLabel.numberOfLines = 2
 
         imageView.contentMode = .scaleAspectFill
         layer.cornerRadius = 10
         clipsToBounds = true
-        
+
         setupBarsStackView()
     }
 
     @objc fileprivate func handleTap(gesture: UITapGestureRecognizer) {
         let tapLocation = gesture.location(in: nil)
         let shouldAdvanceNextPhoto = tapLocation.x > frame.width / 2
-        
+
         if shouldAdvanceNextPhoto {
-            imageIndex = min(imageIndex + 1, cardViewModel.imageNames.count - 1)
+            cardViewModel.advanceIndexPhoto()
         } else {
-            imageIndex = max(0, imageIndex - 1)
+            cardViewModel.preveousIndexPhoto()
         }
-        
-        imageView.image = UIImage(named: cardViewModel.imageNames[imageIndex])
-        
-        barsStackView.arrangedSubviews.forEach { (barView) in
-            barView.backgroundColor = barDeselectedColor
-        }
-        barsStackView.arrangedSubviews[imageIndex].backgroundColor = barSelectedColor
     }
 
     @objc fileprivate func handlePan(gesture: UIPanGestureRecognizer) {
@@ -121,7 +123,14 @@ class CardView: UIView {
             ()
         }
     }
-    
+
+    fileprivate func setSelectedBar(at index: Int) {
+        barsStackView.arrangedSubviews.forEach { (subview) in
+            subview.backgroundColor = self.barDeselectedColor
+        }
+        barsStackView.arrangedSubviews[index].backgroundColor = self.barSelectedColor
+    }
+
     fileprivate func setupBarsStackView() {
         addSubview(barsStackView)
 
@@ -134,20 +143,20 @@ class CardView: UIView {
                              padding: UIEdgeInsets(top: 8, left: 8, bottom: 0, right: 8),
                              size: CGSize(width: 0, height: 3))
     }
-    
+
     fileprivate func handleChanged(_ gesture: UIPanGestureRecognizer) {
         let translation = gesture.translation(in: nil)
-        
+
         let degrees: CGFloat = translation.x / 20
         let angle = degrees * .pi / 180
-        
+
         self.transform = CGAffineTransform(rotationAngle: angle).translatedBy(x: translation.x, y: translation.y)
     }
 
     fileprivate func setupGradiestLayer() {
         gradiestLayer.colors = [UIColor.clear.cgColor, UIColor.black.cgColor]
         gradiestLayer.locations = [0.5, 1.1]
-        
+
         layer.addSublayer(gradiestLayer)
     }
 
