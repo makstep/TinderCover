@@ -10,7 +10,7 @@ import UIKit
 
 class TopNavigationStackView: UIStackView {
     
-    private let settingButton = UIButton(type: .system)
+    let settingButton = UIButton(type: .system)
     private let messageButton = UIButton(type: .system)
     private let fireImageView = UIImageView(image: #imageLiteral(resourceName: "app_icon"))
 

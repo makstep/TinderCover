@@ -27,11 +27,19 @@ class HomeController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        topNavigationStackView.settingButton.addTarget(self, action: #selector(handleSettings), for: .touchUpInside)
+
         setupLayout()
         setupDummuCards()
     }
 
      // MARK:- Fileprivate
+
+    @objc fileprivate func handleSettings() {
+        let registrationController = RegistrationController()
+
+        present(registrationController, animated: true, completion: nil)
+    }
 
     fileprivate func setupDummuCards() {
         cardViewModels.forEach { (cardViewModel) in
