@@ -7,11 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B589D93D22A8889600E06319 /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B589D93C22A8889600E06319 /* RegistrationViewModel.swift */; };
 		B5981D9C22A30C910011F494 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5981D9B22A30C910011F494 /* User.swift */; };
 		B5981DA022A3E84B0011F494 /* CardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5981D9F22A3E84B0011F494 /* CardViewModel.swift */; };
 		B5981DA322A400690011F494 /* Advertiser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5981DA222A400690011F494 /* Advertiser.swift */; };
 		B5AEC95722A86576001A658C /* RegistrationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AEC95622A86576001A658C /* RegistrationController.swift */; };
-		B5AEC95922A86D4C001A658C /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AEC95822A86D4C001A658C /* CustomTextField.swift */; };
+		B5AEC95922A86D4C001A658C /* RegistrationTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AEC95822A86D4C001A658C /* RegistrationTextField.swift */; };
 		B5EC221522A0578600E2318D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5EC221422A0578600E2318D /* AppDelegate.swift */; };
 		B5EC221722A0578600E2318D /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5EC221622A0578600E2318D /* HomeController.swift */; };
 		B5EC221A22A0578600E2318D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5EC221822A0578600E2318D /* Main.storyboard */; };
@@ -24,12 +25,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B589D93C22A8889600E06319 /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
 		B5981D9B22A30C910011F494 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		B5981D9F22A3E84B0011F494 /* CardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewModel.swift; sourceTree = "<group>"; };
 		B5981DA122A3FDE00011F494 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		B5981DA222A400690011F494 /* Advertiser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Advertiser.swift; sourceTree = "<group>"; };
 		B5AEC95622A86576001A658C /* RegistrationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationController.swift; sourceTree = "<group>"; };
-		B5AEC95822A86D4C001A658C /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		B5AEC95822A86D4C001A658C /* RegistrationTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationTextField.swift; sourceTree = "<group>"; };
 		B5EC221122A0578600E2318D /* Tinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5EC221422A0578600E2318D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B5EC221622A0578600E2318D /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 			isa = PBXGroup;
 			children = (
 				B5981D9F22A3E84B0011F494 /* CardViewModel.swift */,
+				B589D93C22A8889600E06319 /* RegistrationViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -128,7 +131,7 @@
 				B5EC222A22A0681800E2318D /* HomeButtomControlsStackView.swift */,
 				B5EC222E22A0720100E2318D /* TopNavigationStackView.swift */,
 				B5EC223022A08E0100E2318D /* CardView.swift */,
-				B5AEC95822A86D4C001A658C /* CustomTextField.swift */,
+				B5AEC95822A86D4C001A658C /* RegistrationTextField.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -205,7 +208,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B5EC221722A0578600E2318D /* HomeController.swift in Sources */,
-				B5AEC95922A86D4C001A658C /* CustomTextField.swift in Sources */,
+				B589D93D22A8889600E06319 /* RegistrationViewModel.swift in Sources */,
+				B5AEC95922A86D4C001A658C /* RegistrationTextField.swift in Sources */,
 				B5EC221522A0578600E2318D /* AppDelegate.swift in Sources */,
 				B5981DA322A400690011F494 /* Advertiser.swift in Sources */,
 				B5EC222822A05A6000E2318D /* Extensions+UIView.swift in Sources */,
