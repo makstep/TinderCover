@@ -21,18 +21,22 @@ fileprivate class FullnameValidator: RegistrationFieldValidator {
 }
 
 fileprivate class EmailValidator: RegistrationFieldValidator {
-    // soft validation
+    static let emailRegExp = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+
     func validate(_ value: String?) -> Bool {
         guard let value = value else { return false }
-        return !value.isEmpty
+        let emailTest = NSPredicate(format: "SELF MATCHES %@", EmailValidator.emailRegExp)
+
+        return !value.isEmpty && emailTest.evaluate(with: value)
     }
 }
 
 fileprivate class PasswordValidator: RegistrationFieldValidator {
-    // soft validation
+    static let minimumFirebasePasswordLength = 6
+
     func validate(_ value: String?) -> Bool {
         guard let value = value else { return false }
-        return !value.isEmpty
+        return !value.isEmpty && value.count >= PasswordValidator.minimumFirebasePasswordLength
     }
 }
 
