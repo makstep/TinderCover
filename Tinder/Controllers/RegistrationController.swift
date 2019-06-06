@@ -92,7 +92,6 @@ class RegistrationController: UIViewController {
 
         setupGradientLayer()
         setupLayout()
-        setupNotificationObserver()
         setupTapGesture()
         setupRegistrationViewObserver()
     }
@@ -100,6 +99,10 @@ class RegistrationController: UIViewController {
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         gradientLayer.frame = view.bounds
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        setupNotificationObserver()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
