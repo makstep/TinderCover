@@ -6,7 +6,7 @@
 //  Copyright © 2019 Maksim Ivanov. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 protocol RegistrationFieldValidator {
     func validate(_ value: String?) -> Bool
@@ -46,6 +46,9 @@ class RegistrationViewModel {
     fileprivate let emailValidator = EmailValidator()
     fileprivate let passwordValidator = PasswordValidator()
 
+    let bindableImage = Bindable<UIImage>()
+    let bindableIsFormValid = Bindable<Bool>()
+
     var fullname: String? {
         didSet {
             checkFormValidity()
@@ -64,14 +67,12 @@ class RegistrationViewModel {
         }
     }
 
-    var isFormValidObserver: ((Bool) -> ())?
-
     fileprivate func checkFormValidity() {
         let isValid = fullnameValidator.validate(fullname) &&
                       emailValidator.validate(email) &&
                       passwordValidator.validate(password)
-        
-        isFormValidObserver?(isValid)
+
+        bindableIsFormValid.value = isValid
     }
 
 }

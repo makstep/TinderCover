@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B55C679822A963EF000026FF /* Bindable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55C679722A963EF000026FF /* Bindable.swift */; };
 		B589D93D22A8889600E06319 /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B589D93C22A8889600E06319 /* RegistrationViewModel.swift */; };
 		B5981D9C22A30C910011F494 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5981D9B22A30C910011F494 /* User.swift */; };
 		B5981DA022A3E84B0011F494 /* CardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5981D9F22A3E84B0011F494 /* CardViewModel.swift */; };
@@ -28,6 +29,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B55C679722A963EF000026FF /* Bindable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bindable.swift; sourceTree = "<group>"; };
 		B589D93C22A8889600E06319 /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
 		B5981D9B22A30C910011F494 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		B5981D9F22A3E84B0011F494 /* CardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewModel.swift; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 			children = (
 				B5EC221622A0578600E2318D /* HomeController.swift */,
 				B5AEC95622A86576001A658C /* RegistrationController.swift */,
+				B55C679722A963EF000026FF /* Bindable.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -312,6 +315,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B55C679822A963EF000026FF /* Bindable.swift in Sources */,
 				B5EC221722A0578600E2318D /* HomeController.swift in Sources */,
 				B589D93D22A8889600E06319 /* RegistrationViewModel.swift in Sources */,
 				B5AEC95922A86D4C001A658C /* RegistrationTextField.swift in Sources */,

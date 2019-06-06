@@ -1,6 +1,6 @@
 
-// CocoaPods directory
+# CocoaPods
 Pods/
 
-// Secrets
+# Secrets
 GoogleService-Info.plist
