@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import Firebase
 
-protocol RegistrationFieldValidator {
+fileprivate protocol RegistrationFieldValidator {
     func validate(_ value: String?) -> Bool
 }
 
@@ -46,6 +47,7 @@ class RegistrationViewModel {
     fileprivate let emailValidator = EmailValidator()
     fileprivate let passwordValidator = PasswordValidator()
 
+    let bindableIsRegistering = Bindable<Bool>()
     let bindableImage = Bindable<UIImage>()
     let bindableIsFormValid = Bindable<Bool>()
 
@@ -64,6 +66,66 @@ class RegistrationViewModel {
     var password: String? {
         didSet {
             checkFormValidity()
+        }
+    }
+
+    func performRegistration(completion: @escaping (Error?) -> Void) {
+        guard let email = email, let password = password else { return }
+        bindableIsRegistering.value = true
+
+        Auth.auth().createUser(withEmail: email, password: password) { (result, error) in
+
+            if let error = error {
+                completion(error)
+                return
+            }
+
+            print("Success singing up", result?.user.uid ?? "Empty")
+
+
+            self.saveImageToFirebase(completion: completion)
+        }
+    }
+
+    fileprivate func saveImageToFirebase(completion: @escaping ((Error?) -> Void)) {
+        let filename = UUID().uuidString
+        let ref = Storage.storage().reference(withPath: "/images/\(filename)")
+        let imageData = self.bindableImage.value?.jpegData(compressionQuality: 0.75) ?? Data()
+
+        ref.putData(imageData, metadata: nil, completion: { (_, putDataError) in
+            if let putDataError = putDataError {
+                completion(putDataError)
+                return
+            }
+
+            ref.downloadURL(completion: { (downloadURL, downloadURLError) in
+                if let downloadURLError = downloadURLError {
+                    completion(downloadURLError)
+                    return
+                }
+
+                self.bindableIsRegistering.value = false
+
+                let imageURL = downloadURL?.absoluteString ?? ""
+
+                print("Download url is \(imageURL)")
+
+                self.saveInfo(imageURL: imageURL, completion: completion)
+            })
+        })
+    }
+
+    fileprivate func saveInfo(imageURL: String, completion: @escaping ((Error?) -> Void)) {
+        let uid = Auth.auth().currentUser?.uid ?? ""
+        let docData = ["fullName": fullname ?? "", "uid": uid, "imageURL1": imageURL]
+
+        Firestore.firestore().collection("users").document(uid).setData(docData) { (error) in
+            if let error = error {
+                completion(error)
+                return
+            }
+
+            completion(nil)
         }
     }
 
