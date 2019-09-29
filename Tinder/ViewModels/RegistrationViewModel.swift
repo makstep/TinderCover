@@ -9,11 +9,11 @@
 import UIKit
 import Firebase
 
-fileprivate protocol RegistrationFieldValidator {
+private protocol RegistrationFieldValidator {
     func validate(_ value: String?) -> Bool
 }
 
-fileprivate class FullnameValidator: RegistrationFieldValidator {
+private class FullnameValidator: RegistrationFieldValidator {
     // soft validation
     func validate(_ value: String?) -> Bool {
         guard let value = value else { return false }
@@ -21,7 +21,7 @@ fileprivate class FullnameValidator: RegistrationFieldValidator {
     }
 }
 
-fileprivate class EmailValidator: RegistrationFieldValidator {
+private class EmailValidator: RegistrationFieldValidator {
     static let emailRegExp = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
 
     func validate(_ value: String?) -> Bool {
@@ -32,7 +32,7 @@ fileprivate class EmailValidator: RegistrationFieldValidator {
     }
 }
 
-fileprivate class PasswordValidator: RegistrationFieldValidator {
+private class PasswordValidator: RegistrationFieldValidator {
     static let minimumFirebasePasswordLength = 6
 
     func validate(_ value: String?) -> Bool {
@@ -81,7 +81,6 @@ class RegistrationViewModel {
             }
 
             print("Success singing up", result?.user.uid ?? "Empty")
-
 
             self.saveImageToFirebase(completion: completion)
         }

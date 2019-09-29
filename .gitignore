@@ -4,3 +4,6 @@ Pods/
 
 # Secrets
 GoogleService-Info.plist
+
+# System
+.DS_Store

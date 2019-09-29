@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,6 +16,7 @@
 		B5AEC95922A86D4C001A658C /* RegistrationTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AEC95822A86D4C001A658C /* RegistrationTextField.swift */; };
 		B5C14EC822A93CBB00C8962D /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = B5C14EC722A93CBB00C8962D /* .gitignore */; };
 		B5C14ECC22A94BB800C8962D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B5C14ECB22A94BB800C8962D /* GoogleService-Info.plist */; };
+		B5C17B7E23411EF2004B6FF6 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = B5C17B7D23411EF2004B6FF6 /* .swiftlint.yml */; };
 		B5EC221522A0578600E2318D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5EC221422A0578600E2318D /* AppDelegate.swift */; };
 		B5EC221722A0578600E2318D /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5EC221622A0578600E2318D /* HomeController.swift */; };
 		B5EC221A22A0578600E2318D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5EC221822A0578600E2318D /* Main.storyboard */; };
@@ -39,6 +40,7 @@
 		B5AEC95822A86D4C001A658C /* RegistrationTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationTextField.swift; sourceTree = "<group>"; };
 		B5C14EC722A93CBB00C8962D /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		B5C14ECB22A94BB800C8962D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B5C17B7D23411EF2004B6FF6 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		B5EC221122A0578600E2318D /* Tinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5EC221422A0578600E2318D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B5EC221622A0578600E2318D /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 		B5EC220822A0578600E2318D = {
 			isa = PBXGroup;
 			children = (
+				B5C17B7D23411EF2004B6FF6 /* .swiftlint.yml */,
 				B5C14EC722A93CBB00C8962D /* .gitignore */,
 				B5981DA122A3FDE00011F494 /* README.md */,
 				B5EC221322A0578600E2318D /* Tinder */,
@@ -181,6 +184,7 @@
 				B5EC220E22A0578600E2318D /* Frameworks */,
 				B5EC220F22A0578600E2318D /* Resources */,
 				319723427FF7058887B60F52 /* [CP] Embed Pods Frameworks */,
+				B5C17B7C23411CAF004B6FF6 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -229,6 +233,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5C17B7E23411EF2004B6FF6 /* .swiftlint.yml in Resources */,
 				B5C14EC822A93CBB00C8962D /* .gitignore in Resources */,
 				B5EC221F22A0578700E2318D /* LaunchScreen.storyboard in Resources */,
 				B5C14ECC22A94BB800C8962D /* GoogleService-Info.plist in Resources */,
@@ -246,45 +251,33 @@
 			files = (
 			);
 			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Tinder/Pods-Tinder-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
-				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
-				"${BUILT_PRODUCTS_DIR}/JGProgressHUD/JGProgressHUD.framework",
-				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
-				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
-				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
-				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
-				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
-				"${BUILT_PRODUCTS_DIR}/gRPC-ProtoRPC/ProtoRPC.framework",
-				"${BUILT_PRODUCTS_DIR}/gRPC-RxLibrary/RxLibrary.framework",
-				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-Tinder/Pods-Tinder-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JGProgressHUD.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProtoRPC.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxLibrary.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-Tinder/Pods-Tinder-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Tinder/Pods-Tinder-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		B5C17B7C23411CAF004B6FF6 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 		CAA1F374DCE8053EE79D53C5 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;

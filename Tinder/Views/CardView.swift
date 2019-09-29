@@ -7,14 +7,19 @@
 //
 
 import UIKit
+import SDWebImage
 
 class CardView: UIView {
-    
+
     var cardViewModel: CardViewModel! {
         didSet {
-            imageView.image = UIImage(named: cardViewModel.imageNames.first ?? "")
             informationLabel.attributedText = cardViewModel.attributedString
             informationLabel.textAlignment = cardViewModel.textAlingment
+
+            let imageName = cardViewModel.imageNames.first ?? ""
+            if let url = URL(string: imageName) {
+                imageView.sd_setImage(with: url )
+            }
 
             // Reset Bars
             barsStackView.arrangedSubviews.forEach { (subview) in
@@ -26,10 +31,10 @@ class CardView: UIView {
                     let barView = UIView()
                     barView.backgroundColor = barDeselectedColor
                     barView.layer.cornerRadius = 1
-                    
+
                     barsStackView.addArrangedSubview(barView)
                 }
-                
+
                 barsStackView.arrangedSubviews.first?.backgroundColor = barSelectedColor
             }
 
@@ -66,12 +71,12 @@ class CardView: UIView {
         gradiestLayer.frame = self.frame
     }
 
-    // MARK:- Fileprivate
+    // MARK: - Fileprivate
 
     fileprivate func setupImageIndexObserver() {
         cardViewModel.imageIndexObserver = { [unowned self] (index, image) in
             self.imageView.image = image
-            
+
             print("fuck")
 
             self.setSelectedBar(at: index)
@@ -86,7 +91,11 @@ class CardView: UIView {
         setupGradiestLayer()
 
         addSubview(informationLabel)
-        informationLabel.anchor(top: nil, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, padding: .init(top: 0, left: 16, bottom: 16, right: 16))
+        informationLabel.anchor(top: nil,
+                                leading: leadingAnchor,
+                                bottom: bottomAnchor,
+                                trailing: trailingAnchor,
+                                padding: .init(top: 0, left: 16, bottom: 16, right: 16))
 
         informationLabel.textColor = .white
         informationLabel.numberOfLines = 2

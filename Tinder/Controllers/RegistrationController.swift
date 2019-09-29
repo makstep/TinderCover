@@ -12,13 +12,13 @@ import JGProgressHUD
 
 class RegistrationController: UIViewController {
 
-    // MARK:- Fileprivate variables
-    
+    // MARK: - Fileprivate variables
+
     fileprivate let gradientLayer = CAGradientLayer()
     fileprivate let registrationViewModel = RegistrationViewModel()
     fileprivate let registingHUD = JGProgressHUD(style: .dark)
 
-    // MARK:- Views
+    // MARK: - Views
 
     fileprivate let selectPhotoButton: UIButton = {
         let button = UIButton(type: .system)
@@ -92,7 +92,7 @@ class RegistrationController: UIViewController {
         verticalStackView
     ])
 
-    // MARK:- Overrides
+    // MARK: - Overrides
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -125,14 +125,14 @@ class RegistrationController: UIViewController {
         }
     }
 
-    // MARK:- Fileprivate @objc
-    
+    // MARK: - Fileprivate @objc
+
     @objc fileprivate func handleSelectPhoto() {
         let imagePickerController = UIImagePickerController()
         imagePickerController.delegate = self
         present(imagePickerController, animated: true)
     }
-    
+
     @objc fileprivate func handleRegister() {
         handleTapDismiss()
 
@@ -153,21 +153,21 @@ class RegistrationController: UIViewController {
             registrationViewModel.password = passwordTextField.text
         }
     }
-    
+
     @objc fileprivate func handleTapDismiss() {
         self.view.endEditing(true)
     }
-    
+
     @objc fileprivate func handleKeyboardShow(notification: Notification) {
         guard let value = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
-        
+
         let keyboardFrame = value.cgRectValue
         let bottomSpace = view.frame.height - overallStackView.frame.origin.y - overallStackView.frame.height
         let difference = keyboardFrame.height - bottomSpace
-        
+
         view.transform = CGAffineTransform(translationX: 0, y: -difference - 8)
     }
-    
+
     @objc fileprivate func handleKeyboardHide(notification: Notification) {
         UIView.animate(withDuration: 0.5,
                        delay: 0,
@@ -177,7 +177,7 @@ class RegistrationController: UIViewController {
                        animations: { self.view.transform = .identity })
     }
 
-    // MARK:- Fileprivate
+    // MARK: - Fileprivate
 
     fileprivate func showHUDWithError(error: Error) {
         registingHUD.dismiss()
@@ -188,7 +188,7 @@ class RegistrationController: UIViewController {
         hud.dismiss(afterDelay: 4)
     }
 
-    // MARK:- Fileprivate setups
+    // MARK: - Fileprivate setups
 
     fileprivate func setupRegistrationViewObserver() {
         registrationViewModel.bindableIsFormValid.bind { [unowned self] (isFormValid) in
@@ -215,7 +215,7 @@ class RegistrationController: UIViewController {
             if isRegistering == true {
                 self.registingHUD.textLabel.text = "Registration"
                 self.registingHUD.show(in: self.view)
-            } else  {
+            } else {
                 self.registingHUD.dismiss()
             }
         }
@@ -226,8 +226,10 @@ class RegistrationController: UIViewController {
     }
 
     fileprivate func setupNotificationObserver() {
-        NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardShow),
+                                                     name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardHide),
+                                                     name: UIResponder.keyboardWillHideNotification, object: nil)
     }
 
     fileprivate func setupLayout() {
@@ -256,11 +258,12 @@ class RegistrationController: UIViewController {
 
 }
 
-// MARK:- Image picker delegate
+// MARK: - Image picker delegate
 
 extension RegistrationController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+    func imagePickerController(_ picker: UIImagePickerController,
+                               didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         guard let image = info[.originalImage] as? UIImage else { return }
         registrationViewModel.bindableImage.value = image
 
